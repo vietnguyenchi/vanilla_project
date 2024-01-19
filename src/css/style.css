@@ -1,0 +1,26 @@
+:root {
+  --teal: #37e7ce;
+  --teal_hover: #2ec1ac;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "sans-serif";
+}
+
+.custom-bg {
+  background-color: var(--teal);
+  border: 1px solid var(--teal);
+}
+
+.custom-bg:hover {
+  background-color: var(--teal_hover);
+  border-color: var(--teal_hover);
+}
+
+.form-control::placeholder {
+  font-size: 14px;
+  color: gray;
+}
