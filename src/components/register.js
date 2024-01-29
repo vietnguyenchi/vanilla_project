@@ -1,6 +1,7 @@
+import instance from "@/apis";
 import { validRegister } from "../validations/auth.valid";
-
-const users = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
+import showMessage from "@/utilities/showMessage";
+import { router } from "@/utilities/common";
 
 function register() {
     let username = document.getElementById('username').value.trim();
@@ -11,16 +12,22 @@ function register() {
     let userInfo = {
         username,
         email,
-        password, 
-        cf_password
+        password,
+        address: '',
+        phone: '',
+        avatar: './src/images/user.png',
+        cart: [],
+        role: 'user'
     }
 
-    if (validRegister(userInfo, users)) {
-        users.push(userInfo);
-        localStorage.setItem("users", JSON.stringify(users));
-        sessionStorage.setItem('user', JSON.stringify(userInfo));
-        alert('Register successfully');
-        window.location = '/';
+    if (validRegister({email, password, cf_password})) {
+        instance.post('/register', userInfo)
+            .then(({data}) => {
+                sessionStorage.setItem('user', JSON.stringify(data.user));
+                alert('User registration successful');
+                router.navigate('/');
+            })
+            .catch(({response}) => showMessage('response', response.data));
     }
 }
 

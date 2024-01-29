@@ -1,4 +1,4 @@
-function validRegister(data, users) {
+function validRegister(data) {
     if (data.username === '' || data.email === '' || data.password === '' || data.cf_password === '') {
         alert('Cannot be empty');
         return false;
@@ -14,26 +14,12 @@ function validRegister(data, users) {
         return false;
     }
 
-    for (const user of users) {
-        if (user.email === data.email) {
-            alert('Email already in use');
-            return false;
-        }
-    }
-
     return true;
 }
 
-function validLogin(email, password, users) {
+function  validLogin(email, password) {
     if (email === '' || password === '') {
         alert('Cannot be empty');
-        return false;
-    }
-
-    const result = users.some(user => user.email === email && user.password === password)
-
-    if (result === false) {
-        alert('Invalid email or password');
         return false;
     }
 

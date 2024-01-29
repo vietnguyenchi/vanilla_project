@@ -1,9 +1,9 @@
 import { checkLogin } from "../utilities/common";
 export const header = () => {
-    return `
-        <nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
+    return /*html*/`
+        <nav class="navbar navbar-expand-lg bg-white shadow w-100 mb-5 sticky-top z-1">
             <div class="container">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand fw-bold fs-3 h-font" href="#">Fpoly shop</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">

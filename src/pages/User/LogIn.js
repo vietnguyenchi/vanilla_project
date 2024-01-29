@@ -1,4 +1,4 @@
-import { header } from "../components/header";
+import { header } from "../../components/header";
 export const logIn = () => {
     return /*html*/`
         ${header()}
